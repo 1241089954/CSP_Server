@@ -211,12 +211,12 @@ public class Server {
         for (SocketInfo info : mList) {
             if (info.getSocket().getInetAddress().toString().equals(targetIP)) {
                 try {
-                    Result<ArrayList<Table>> result = new Result<>(TYPE.TABLE_INFO, "", "在线:" + mList.size(), tables);
+                    Result<ArrayList<Table>> result = new Result<>(TYPE.CSP_INFO, strings[csp], "在线:" + mList.size(), tables);
                     info.getObjectOutputStream().writeObject(result);
                     System.out.println("向对手发送消息成功");
                     System.out.println("----------------------------------------");
                     break;
-                } catch (IOException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
